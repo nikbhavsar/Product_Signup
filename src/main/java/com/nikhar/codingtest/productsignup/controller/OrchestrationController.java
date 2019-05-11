@@ -3,18 +3,18 @@ package com.nikhar.codingtest.productsignup.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.nikhar.codingtest.productsignup.modal.PaymentSchema;
 import com.nikhar.codingtest.productsignup.modal.User;
 import com.nikhar.codingtest.productsignup.service.PaymentService;
 import com.nikhar.codingtest.productsignup.service.RegistrationService;
 
-@Controller
+@RestController
 public class OrchestrationController {
 
 	@Autowired
@@ -31,6 +31,8 @@ public class OrchestrationController {
 		request.setAttribute("mode", "MODE_HOMEPAGE");
 		return "registration";
 	}
+	
+	// Sending user to the registration form
 	
 	@RequestMapping("/register")
 	public String registration(HttpServletRequest request) {
