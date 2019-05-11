@@ -50,6 +50,12 @@ public class User {
 
 	public User() {}
 	
+	//constructor with name for sample unit test
+	
+	public User(String name) {
+		this.name = name;
+	}
+	
 
 	// All argument constructor
 
