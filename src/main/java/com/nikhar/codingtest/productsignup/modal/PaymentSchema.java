@@ -1,10 +1,14 @@
 package com.nikhar.codingtest.productsignup.modal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -17,26 +21,23 @@ public class PaymentSchema {
 	// including NotNull and size to validate the fields
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
 	@NotNull
-	@Size(min = 2, max = 12)
 	private int creditCardNumber;
 	
 	// Used @JsonProperty(access = Access.WRITE_ONLY) for hiding the data in payload 
 
 	@NotNull
-	@Size(min = 2, max = 2)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private int expiryMonth;
 
 	@NotNull
-	@Size(min = 2, max = 2)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private int expiryYear;
 
 	@NotNull
-	@Size(min = 3, max = 3)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private int cvv;
 

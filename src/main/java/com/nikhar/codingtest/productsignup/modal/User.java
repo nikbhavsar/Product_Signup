@@ -1,6 +1,8 @@
 package com.nikhar.codingtest.productsignup.modal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -13,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 //Database table name will be user-info in mySQL database
 
 @Entity
-@Table(name = "user-info")
+@Table(name = "user_info")
 public class User {
 
 	// data fields
 	// including NotNull and size to validate the fields
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
 	@NotNull

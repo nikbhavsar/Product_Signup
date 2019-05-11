@@ -1,29 +1,27 @@
 package com.nikhar.codingtest.productsignup.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.nikhar.codingtest.productsignup.modal.PaymentSchema;
 import com.nikhar.codingtest.productsignup.modal.User;
 import com.nikhar.codingtest.productsignup.service.PaymentService;
 import com.nikhar.codingtest.productsignup.service.RegistrationService;
 
-@RestController
+@Controller
 public class OrchestrationController {
-
+	
 	@Autowired
 	RegistrationService registrationService;
 	
 	@Autowired
 	PaymentService paymentService;
-
-
+	
 	// Displaying registration page for Initial route
 	
 	@RequestMapping("/")
@@ -34,7 +32,7 @@ public class OrchestrationController {
 	
 	// Sending user to the registration form
 	
-	@RequestMapping("/register")
+	@RequestMapping("/register-now")
 	public String registration(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_REGISTER");
 		return "registration";
@@ -59,3 +57,4 @@ public class OrchestrationController {
 	}
 
 }
+
