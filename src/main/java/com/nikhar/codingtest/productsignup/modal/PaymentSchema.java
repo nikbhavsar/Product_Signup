@@ -99,7 +99,16 @@ public class PaymentSchema {
 		return address;
 	}
 
+
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	//Tostring method to print data into String
+	
+	@Override
+	public String toString() {
+		return "PaymentSchema [id=" + id + ", creditCardNumber=" + creditCardNumber + ", expiryMonth=" + expiryMonth
+				+ ", expiryYear=" + expiryYear + ", cvv=" + cvv + ", address=" + address + "]";
 	}
 }
