@@ -32,6 +32,12 @@ public class OrchestrationController {
 		return "registration";
 	}
 	
+	@RequestMapping("/register")
+	public String registration(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_REGISTER");
+		return "registration";
+}
+	
 	//Getting user's entered data and store it to database then send user to registration page
 
 	@PostMapping("/register-user")

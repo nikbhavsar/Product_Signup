@@ -34,6 +34,14 @@
 <body>
 
 	<c:choose>
+		<c:when test="${mode=='MODE_HOMEPAGE' }">
+			<div class="container" id="homediv">
+				<div class="jumbotron text-center">
+					<h1>Welcome to Product Signup Experience</h1>
+					<a href="/register">Click me to Register!!</a>
+				</div>
+			</div>
+		</c:when>
 		<c:when test="${mode=='MODE_REGISTER' }">
 			<div class="container text-center">
 				<h3>Registration</h3>

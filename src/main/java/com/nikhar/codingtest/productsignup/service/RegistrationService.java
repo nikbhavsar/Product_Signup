@@ -9,17 +9,19 @@ import com.nikhar.codingtest.productsignup.repository.RegistrationRepository;
 @Service
 @Transactional
 public class RegistrationService {
-	
+
 	private final RegistrationRepository registrationRepository;
-	
+
 	public RegistrationService(RegistrationRepository registrationRepository) {
 		this.registrationRepository = registrationRepository;
 	}
-	
+
+	// Use save method from curd-repository to save user data
+
 	public void saveUserDetails(User user) {
-		
+
 		registrationRepository.save(user);
-		
+
 	}
 
 }
