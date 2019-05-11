@@ -17,7 +17,7 @@ public class PaymentController {
 
 	
 
-	@PostMapping("/payment")
+	@GetMapping("/payment")
 	public String saveUser(@RequestParam int cardNumber, @RequestParam int expiryMonth, @RequestParam int expiryYear,
 			@RequestParam int cvv, @RequestParam String address) {
 		

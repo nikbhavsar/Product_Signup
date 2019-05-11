@@ -15,27 +15,39 @@ import com.nikhar.codingtest.productsignup.service.PaymentService;
 import com.nikhar.codingtest.productsignup.service.RegistrationService;
 
 @Controller
-public class ApplicationController {
+public class OrchestrationController {
 
 	@Autowired
 	RegistrationService registrationService;
 	
+	@Autowired
+	PaymentService paymentService;
 
 
 	// Displaying registration page for Initial route
 	
 	@RequestMapping("/")
-	public String Registration() {
+	public String Registration(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOMEPAGE");
 		return "registration";
 	}
 	
-	//Getting user's Entered data and store it to database then send user to registration page
+	//Getting user's entered data and store it to database then send user to registration page
 
 	@PostMapping("/register-user")
 	public String registerUser(@ModelAttribute User user, BindingResult bindingResult, HttpServletRequest request) {
 		registrationService.saveUserDetails(user);
+		request.setAttribute("mode", "MODE_PAYMENT");
 		return "registration";
 	}
 	
+	//Getting user's entered data and store it to database then send user to registration page
+
+	@PostMapping("/finish-payment")
+	public String finishPayment(@ModelAttribute PaymentSchema payment, BindingResult bindingResult, HttpServletRequest request) {
+		paymentService.savePaymentDetails(payment);
+		request.setAttribute("mode", "MODE_HOMEPAGE");
+		return "registration";
+	}
 
 }
